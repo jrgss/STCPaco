@@ -75,7 +75,9 @@ namespace STC.Controllers
             modelos.Add(modelpremier);
             modelos.Add(modelseriea);
             modelos.Add(modelsbundes);
-
+            DateTime hoy = DateTime.Today;
+            string fechaHoy = hoy.Year + "-" + hoy.Month + "-" + hoy.Day;
+            ViewData["FECHA"] = "HOY";
 
             return View(modelos);
         }
@@ -83,6 +85,17 @@ namespace STC.Controllers
         [HttpGet("{fecha}")]
         public async Task<IActionResult> Index(string fecha)
         {
+            DateTime hoy = DateTime.Today;
+            string fechaHoy = hoy.Year + "-" + hoy.Month + "-" + hoy.Day;
+            if (fecha.Equals(fechaHoy))
+            {
+                ViewData["FECHA"] = "HOY";
+            }
+            else
+            {
+                ViewData["FECHA"] = fecha;
+            }
+           
             DateTime dia = Convert.ToDateTime(fecha);
 
             Competicion competicion = this.repoApi.BaseFindCompeticion(140);
