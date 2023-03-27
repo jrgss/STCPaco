@@ -1,11 +1,9 @@
 ﻿@model List<Competicion>
 
     <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" 
-  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" 
-  aria-expanded="false">
+ <span class="btn dropdown-toggle nav-link text-dark" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" type="button">
     Competiciones
-  </button>
+  </span>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         @foreach(Competicion compe in Model)
     {
